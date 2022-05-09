@@ -16,7 +16,6 @@ import java.util.ArrayList;
  */
 
 
-
 public class Barre {
     private int ID;
     private Noeud nd;
@@ -41,22 +40,25 @@ public class Barre {
         this.compressmax=-1000;
         this.cout=-1000;
     }
+   
     
-    public static Barre CreerBarre(Noeud n1,Noeud n2){
+    public  Barre CreerBarre(Noeud n1,Noeud n2){
+        System.out.println("shiiiiiiiiii");
+        
         Barre b =new Barre(-1,n1,n2,0,0,0);
-        System.out.print("quelle est est son ID");
+        System.out.println("quelle est est son ID");
         b.ID=Lire.i();
-        System.out.print("quelle est est sa traction max");
+        System.out.println("quelle est est sa traction max");
         b.tracmax=Lire.i();
-        System.out.print("quelle est est sa compression max");
+        System.out.println("quelle est est sa compression max");
         b.compressmax=Lire.i();
-        System.out.print("quelle est est son cout");
+        System.out.println("quelle est est son cout");
         b.cout=Lire.i();
         
         return b;
     }
     
-    public static Barre ChoisiBarre(ArrayList<Barre>listBarres){
+    public Barre ChoisiBarre(ArrayList<Barre>listBarres){
         System.out.println("quelle est l'ID de la barre");
         int idcherche=Lire.i();
         for(int i=0;i<listBarres.size();i++){
@@ -67,6 +69,8 @@ public class Barre {
         return(null);
         
     }
+    
+
     
     
     public Noeud NoeudOppose (Noeud nrepere, Barre b){

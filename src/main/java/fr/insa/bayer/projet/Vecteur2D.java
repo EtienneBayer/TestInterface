@@ -20,7 +20,13 @@ public class Vecteur2D {
     public String toString(){
        return "[vx:"+this.vx+" "+"vy:"+this.vy+"]";
     
-    } 
+    }
+    public  Vecteur2D creerVecteur(){
+         Vecteur2D v1=new Vecteur2D(0,0);
+            v1.demandeVx();
+            v1.demandeVy();
+            return(v1);
+     }
     
     
     

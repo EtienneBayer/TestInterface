@@ -19,6 +19,9 @@ public class NoeudAppuiSimple extends NoeudAppui {
     public NoeudAppuiSimple(double PX, double PY){
       super(PX,PY);      
     }
+    public NoeudAppuiSimple(){
+        super();
+    }
     
     @Override
     public String toString(){
@@ -34,5 +37,16 @@ public class NoeudAppuiSimple extends NoeudAppui {
          return(barreInci);
      }
     }
+     public  NoeudAppuiSimple creerNoeudAppuiSimple(){
+          Vecteur2D v2=new Vecteur2D(0,0);
+            v2=v2.creerVecteur();
+            
+            NoeudAppuiSimple nAs = new NoeudAppuiSimple(0,0,v2);
+            nAs.demandePx();
+            nAs.demandePy();
+            
+            return(nAs);
+         
+     }
     
 }

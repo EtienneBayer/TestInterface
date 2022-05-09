@@ -12,8 +12,18 @@ import java.util.ArrayList;
  */
 public class Test {
     public static void main (String[] args){
-        Vecteur2D v1;
-        NoeudSimple n1,nc;
+        /**
+        Vecteur2D v1 =new Vecteur2D(0, 0) ;
+        v1=v1.creerVecteur();
+        System.out.println(v1.toString());
+        NoeudSimple ns = new NoeudSimple();
+        ns=ns.creerNoeudSimple();
+        System.out.println(ns.toString());
+         */      
+        ArrayList<Barre>listBarres = new ArrayList<Barre>();
+        ArrayList<Noeud>listNoeuds = new ArrayList<Noeud>();
+        Treillis treillis = new Treillis(listBarres,listNoeuds);
+       
         double cx,cy;
         
         ArrayList<Vecteur2D>tabv ;
@@ -28,99 +38,34 @@ public class Test {
         ArrayList<NoeudAppuiDouble>tabnAd ;
         tabnAd=new ArrayList<NoeudAppuiDouble> (10);
         
-        v1=new Vecteur2D(0,0);
-        v1.demandeVx();
-        v1.demandeVy();
-        n1=new NoeudSimple(0,0,v1);
-        n1.demandePx();
-        n1.demandePy();     
-        tabv.add(v1);
-        tabns.add(n1);
-             
-        System.out.print("v1 :"+v1.toString());
-        System.out.println("");
-        System.out.print("n1 :"+n1.toString());
-        System.out.println("");
-         
-        Noeudcherche(tabns,tabnAs,tabnAd); //conversion objet en NoeudSimple
-         
-       
-         int a=ChoixtypeNoeud();
-          if (a==1){
-          NoeudSimple ns;
-          ns=(NoeudSimple) ENTRENOEUD(tabns, tabnAs, tabnAd, a);  //ici, on converti un objet en noeud Simple pour le mettre dans ns
-          tabns.add(ns);  
-
-        }
-        if (a==2){
-           NoeudAppuiSimple nAs;
-          nAs=(NoeudAppuiSimple) ENTRENOEUD(tabns, tabnAs, tabnAd, a);
-           tabnAs.add(nAs);
-         
-        }
-        if (a==3){ 
-            NoeudAppuiDouble nAd;
-            nAd=(NoeudAppuiDouble) ENTRENOEUD(tabns, tabnAs, tabnAd, a);
-          tabnAd.add(nAd); 
-               
-        }
-        Noeudcherche(tabns,tabnAs,tabnAd);
         
-        
-        
-        
+       treillis.MenuTexte();
+      
         
     }
     
-     public static NoeudSimple creerNoeudSimple(){
-         Vecteur2D v1=new Vecteur2D(0,0);
-           v1=creerVecteur();
-            
-            NoeudSimple ns = new NoeudSimple(0,0,v1);
-            ns.demandePx();
-            ns.demandePy();
-            
-            return(ns);
-         
-     }
-     public static Object ENTRENOEUD(ArrayList<NoeudSimple> tabns,ArrayList<NoeudAppuiSimple> tabnAs,ArrayList<NoeudAppuiDouble> tabnAd,int a){
+    
+     public  Object ENTRENOEUD(ArrayList<NoeudSimple> tabns,ArrayList<NoeudAppuiSimple> tabnAs,ArrayList<NoeudAppuiDouble> tabnAd,int a){
      if (a==1){
-          NoeudSimple ns=creerNoeudSimple();   
+          NoeudSimple ns= new NoeudSimple();
+          ns=ns.creerNoeudSimple();
           System.out.println("le noeud Simple creer : "+ns.toString());
           
           return(ns); 
         }
         if (a==2){
-           NoeudAppuiSimple nAs=creerNoeudAppuiSimple();   
+          NoeudAppuiSimple nAs= new NoeudAppuiSimple();
+          nAs=nAs.creerNoeudAppuiSimple();   
           System.out.println("le noeud Appui Simple creer : "+nAs.toString());
           return(nAs);
         }
-            NoeudAppuiDouble nAd=creerNoeudAppuiDouble(); 
-           System.out.println("le noeud  Appui Double creer : "+nAd.toString());    
-            return(nAd);
+         NoeudAppuiDouble nAd= new NoeudAppuiDouble();
+         nAd=nAd.creerNoeudAppuiDouble(); 
+         System.out.println("le noeud  Appui Double creer : "+nAd.toString());    
+         return(nAd);
      }
-     public static NoeudAppuiSimple creerNoeudAppuiSimple(){
-          Vecteur2D v2=new Vecteur2D(0,0);
-            v2=creerVecteur();
-            
-            NoeudAppuiSimple nAs = new NoeudAppuiSimple(0,0,v2);
-            nAs.demandePx();
-            nAs.demandePy();
-            
-            return(nAs);
-         
-     }
-     public static NoeudAppuiDouble creerNoeudAppuiDouble(){
-          Vecteur2D v3=new Vecteur2D(0,0);
-           v3=creerVecteur();
-            
-            NoeudAppuiDouble nAd = new NoeudAppuiDouble(0,0,v3);
-            nAd.demandePx();
-            nAd.demandePy();
-            
-            return(nAd);
-         
-     }
+     
+    
 
     /**
      *
@@ -128,7 +73,7 @@ public class Test {
      * @param tabnAs
      * @param tabnAd
      */
-    public static Noeud Noeudcherche(ArrayList<NoeudSimple> tabns,ArrayList<NoeudAppuiSimple> tabnAs,ArrayList<NoeudAppuiDouble> tabnAd){      
+    public  Noeud Noeudcherche(ArrayList<NoeudSimple> tabns,ArrayList<NoeudAppuiSimple> tabnAs,ArrayList<NoeudAppuiDouble> tabnAd){      
        
         System.out.println("quelle sont les coordonnees cx et cy du point recherchees ?");
         double cx,cy;
@@ -159,20 +104,15 @@ public class Test {
        return(null);
     }
     
-     public static Vecteur2D creerVecteur(){
-         Vecteur2D v1=new Vecteur2D(0,0);
-            v1.demandeVx();
-            v1.demandeVy();
-            return(v1);
-     }
-      public static int  ChoixtypeNoeud(){
+     
+      public  static int  ChoixtypeNoeud(){
         System.out.println("quelle type de noeud veux tu creer: 1 pour Noeud Simple, 2 Noeud Appui Simple,3 Noeud appui Double");
         int a=Lire.i();
         return(a);
       }
        
        
-       public static int  nbrInconnues(Object noeud){
+       public  int  nbrInconnues(Object noeud){
            if (noeud.getClass() == NoeudSimple.class) {
             return(0);
         } else if (noeud.getClass() == NoeudAppuiSimple.class) {

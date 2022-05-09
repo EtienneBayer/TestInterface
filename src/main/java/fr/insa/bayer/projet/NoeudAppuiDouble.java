@@ -19,7 +19,9 @@ public class NoeudAppuiDouble extends NoeudAppui {
     public NoeudAppuiDouble(double PX, double PY){
       super(PX,PY);      
     }
-    
+    public NoeudAppuiDouble(){
+      super();      
+    }
     @Override
     public String toString(){
         return("TON POINT NARVALO : [id : "+getId() +" px:"+getPx()+" py:"+getPy()+" force:"+getV().toString() );
@@ -34,6 +36,17 @@ public class NoeudAppuiDouble extends NoeudAppui {
          return(barreInci);
      }
     }
+      public  NoeudAppuiDouble creerNoeudAppuiDouble(){
+          Vecteur2D v3=new Vecteur2D(0,0);
+           v3=v3.creerVecteur();
+            
+            NoeudAppuiDouble nAd = new NoeudAppuiDouble(0,0,v3);
+            nAd.demandePx();
+            nAd.demandePy();
+            
+            return(nAd);
+         
+     }
     
     
 }

@@ -20,6 +20,9 @@ public abstract class NoeudAppui extends Noeud {
     public NoeudAppui(double PX, double PY){
       super(PX,PY);      
     }
+    public NoeudAppui(){
+        super();
+    }
     public abstract ArrayList<Barre> barreIncidentes (Noeud noeud);
    
     
